@@ -48,7 +48,7 @@ input {
   
 }
 
-#check-palindrome {
+#check-btn {
 display: block;
 margin: auto;
 background: transparent;
@@ -62,7 +62,7 @@ font-size: large;
 cursor: pointer;
 }
 
-#output-box {
+#result {
   display: block;
   text-align: center;
   font-size: x-large;

@@ -142,3 +142,32 @@ function getNextPalindromeDate(date) {
     return [ctr, nextDate];
 }
 
+
+var dateInputRef = document.querySelector('#bday-input');
+var checkBtnRef = document.querySelector('#check-btn');
+var resultRef = document.querySelector('#result');
+
+function clickHandler(e){
+    var bdayStr = dateInputRef.value;
+
+    if(bdayStr !== '') {
+        var listOfDate = bdayStr.split('-');
+        var date = {
+            day: Number(listOfDate[2]),
+            month: Number(listOfDate[1]),
+            year: Number(listOfDate[0])
+        };
+        
+        var isPalindrome = checkPalindromeForAllDateFormats(date);
+
+        if(isPalindrome){
+            resultRef.innerText = 'Yay! your birthday is a palindrome!! 😎😍'
+        } else {
+            var [ctr, nextDate] = getNextPalindromeDate(date);
+            resultRef.innerText = ('The next palindrome date is ' + (nextDate.day) + '-' + (nextDate.month) + '-' + nextDate.year + ' and you missed it by ' + ctr + ' days!😔');
+            
+        }
+    }
+}
+
+checkBtnRef.addEventListener('click', clickHandler);
